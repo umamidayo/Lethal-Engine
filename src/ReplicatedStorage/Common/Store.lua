@@ -6,6 +6,8 @@ local Rodux = require(ReplicatedStorage.Packages.Rodux)
 
 local Reducers: Folder = ReplicatedStorage.Common.Reducers
 
+local DEBUG = false
+
 local reducers = {}
 for _, reducer in Reducers:GetChildren() do
 	if reducer:IsA("ModuleScript") then
@@ -58,5 +60,5 @@ end
 return Rodux.Store.new(rootReducer, initialStates, {
 	replicationMiddleware,
 	clientUpdateMiddleware,
-	RunService:IsStudio() and Rodux.loggerMiddleware or nil,
+	RunService:IsStudio() and DEBUG and Rodux.loggerMiddleware or nil,
 })
