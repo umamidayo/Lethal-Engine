@@ -1,0 +1,10 @@
+[package]
+name = "morgann1/cryo"
+description = "Luau typings support for Roblox's Cryo Package"
+version = "1.0.3"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+authors = ["Roblox Corporation"]
+license = "MIT"
+
+[dependencies]

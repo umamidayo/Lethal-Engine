@@ -1,0 +1,12 @@
+[package]
+name = "dayo/gunengine"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+Cryo = "morgann1/cryo@1.0.3"
+React = "jsdotlua/react@17.2.0"
+ReactRoblox = "jsdotlua/react-roblox@17.2.0"
+RoactTemplate = "corecii/roact-template@0.2.1"
+Rodux = "roblox/rodux@3.0.0"
