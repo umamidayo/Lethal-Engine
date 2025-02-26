@@ -1,5 +1,5 @@
 {
-  "name": "gunEngine",
+  "name": "lethal-engine",
   "tree": {
     "$className": "DataModel",
     "ReplicatedFirst": {
