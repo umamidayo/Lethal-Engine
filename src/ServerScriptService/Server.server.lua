@@ -4,7 +4,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Network = require(ReplicatedStorage.Shared.Network)
 
 local directories = {
-	ServerScriptService.Contents.Systems,
+	ServerScriptService.Systems,
 	ReplicatedStorage.Shared.Systems,
 }
 
