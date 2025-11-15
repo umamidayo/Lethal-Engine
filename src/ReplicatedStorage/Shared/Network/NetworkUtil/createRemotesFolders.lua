@@ -13,8 +13,8 @@ local RemoteFunctionName = require(ReplicatedStorage.Shared.Network.RemoteName.R
 local UnreliableRemoteEventName = require(ReplicatedStorage.Shared.Network.RemoteName.UnreliableRemoteEventName)
 local BindableEventName = require(ReplicatedStorage.Shared.Network.RemoteName.BindableEventName)
 local RemoteFolderName = require(ReplicatedStorage.Shared.Network.RemoteFolderName)
-local createInstanceTree = require(ReplicatedStorage.Shared.Utility.createInstanceTree)
-local getInstance = require(ReplicatedStorage.Shared.Utility.getInstance)
+local createInstanceTree = require(ReplicatedStorage.Shared.Network.NetworkUtil.createInstanceTree)
+local getInstance = require(ReplicatedStorage.Shared.Network.NetworkUtil.getInstance)
 
 type PropertiesTable = { [string]: any }
 

@@ -8,8 +8,8 @@ local player = Players.LocalPlayer
 local PlayerScripts = player:WaitForChild("PlayerScripts")
 
 local directories = {
-	PlayerScripts:WaitForChild("Contents"):WaitForChild("Game"),
-	ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Universal"),
+	PlayerScripts:WaitForChild("Systems"),
+	ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Systems"),
 }
 
 local playerModules = {}
@@ -62,56 +62,4 @@ local function loadModules(moduleDirectories, container: {})
 	initialize(container)
 end
 
--- Loads character modules when character is added
-local function onCharacterAdded()
-	local character = player.Character or player.CharacterAdded:Wait()
-
-	-- Wait a short time to ensure character is fully loaded
-	task.wait(0.2)
-
-	-- Clean up any existing character modules
-	if character:FindFirstChild("CharacterModules") then
-		character.CharacterModules:Destroy()
-	end
-
-	local contents = ReplicatedStorage:WaitForChild("Client"):WaitForChild("CharacterModules"):Clone()
-	contents.Parent = character
-
-	local characterDirectories = {
-		contents:WaitForChild("Game", 5),
-	}
-	local characterModules = {}
-
-	if next(characterDirectories) == nil then
-		return
-	end
-
-	for _, directory in pairs(characterDirectories) do
-		setup(directory, characterModules)
-	end
-
-	table.sort(characterModules, function(module1, module2)
-		return (module1.priority or 10) < (module2.priority or 10)
-	end)
-
-	for _, module in pairs(characterModules) do
-		if typeof(module) == "table" and module.init then
-			local success, result = pcall(function()
-				task.spawn(module.init)
-			end)
-
-			if not success then
-				warn(`Failed to initialize module {module.Name}: {result}`)
-				continue
-			end
-		end
-	end
-end
-
 loadModules(directories, playerModules)
-
-if player.Character then
-	onCharacterAdded()
-end
-
-player.CharacterAdded:Connect(onCharacterAdded)
