@@ -17,7 +17,7 @@ local BindableEventName = require(script.RemoteName.BindableEventName)
 local createRemotesFolders = require(script.NetworkUtil.createRemotesFolders)
 local waitForAllRemotesAsync = require(script.NetworkUtil.waitForAllRemotesAsync)
 local getInstance = require(script.NetworkUtil.getInstance)
-local t = require(ReplicatedStorage.Shared.Dependencies.t)
+local t = require(script.Dependencies.t)
 
 local REMOTE_REPLICATION_TIMEOUT_SECONDS = 2
 local REMOTE_FOLDER_PARENT = ReplicatedStorage

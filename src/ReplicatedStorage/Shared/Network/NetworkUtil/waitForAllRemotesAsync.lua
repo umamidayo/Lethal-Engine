@@ -9,7 +9,7 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Sift = require(ReplicatedStorage.Shared.Dependencies.Sift)
+local Sift = require(ReplicatedStorage.Shared.Network.Dependencies.Sift)
 local RemoteEventName = require(ReplicatedStorage.Shared.Network.RemoteName.RemoteEventName)
 local RemoteFunctionName = require(ReplicatedStorage.Shared.Network.RemoteName.RemoteFunctionName)
 local RemoteFolderName = require(ReplicatedStorage.Shared.Network.RemoteFolderName)
